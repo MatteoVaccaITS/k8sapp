@@ -1,20 +1,30 @@
-apiVersion: apps/v1           # API version for Deployment resources
-kind: Deployment              # Specifies this is a Deployment object
+# API version for Deployment resources
+apiVersion: apps/v1
+# Specifies this is a Deployment object
+kind: Deployment
 metadata:
-  name: k8sapp                # Name of the Deployment
-  namespace: default          # Namespace where the Deployment will be created
+  # Name of the Deployment
+  name: k8sapp
+  # Namespace where the Deployment will be created
+  namespace: default
 spec:
-  replicas: 1                 # Number of pod replicas to run
+  # Number of pod replicas to run
+  replicas: 1
   selector:
     matchLabels:
-      app: k8sapp             # Selects pods with label 'app: k8sapp'
+      # Selects pods with label 'app: k8sapp'
+      app: k8sapp
   template:
     metadata:
       labels:
-        app: k8sapp           # Labels to apply to the pods created by this Deployment
+        # Labels to apply to the pods created by this Deployment
+        app: k8sapp
     spec:
       containers:
-      - name: k8sapp          # Name of the container
-        image: k8sapp:v1      # Docker image to use for the container
+      - # Name of the container
+        name: k8sapp
+        # Docker image to use for the container
+        image: k8sapp:v1
         ports:
-        - containerPort: 5000 # Port exposed by the container
+        - # Port exposed by the container
+          containerPort: 5000

@@ -1,10 +1,15 @@
-from flask import Flask, jsonify      # Import Flask and jsonify for API responses
-from flask_cors import CORS           # Import CORS to allow cross-origin requests
+# Import Flask and jsonify for API responses
+from flask import Flask, jsonify
+# Import CORS to allow cross-origin requests
+from flask_cors import CORS
 
-app = Flask(__name__)                 # Create Flask application instance
-CORS(app)                             # Enable CORS for all routes
+# Create Flask application instance
+app = Flask(__name__)
+# Enable CORS for all routes
+CORS(app)
 
-@app.route('/api/hello')              # Define route for GET requests to /api/hello
+# Define route for GET requests to /api/hello
+@app.route('/api/hello')
 def hello():
     # Return a JSON response with a greeting message
     return jsonify({ "message": "Hello from Python backend!" })
