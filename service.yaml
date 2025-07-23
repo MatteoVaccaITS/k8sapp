@@ -1,13 +1,13 @@
-apiVersion: v1
-kind: Service
+apiVersion: v1                # API version for Service resources
+kind: Service                 # Specifies this is a Service object
 metadata:
-  name: k8sapp-service
-  namespace: default
+  name: k8sapp-service        # Name of the Service
+  namespace: default          # Namespace where the Service will be created
 spec:
   selector:
-    app: k8sapp
-  type: ClusterIP
+    app: k8sapp               # Selects pods with label 'app: k8sapp'
+  type: ClusterIP             # Service type; exposes the Service on a cluster-internal IP
   ports:
-  - port: 5000
-    targetPort: 5000
-    protocol: TCP
+  - port: 5000                # Port exposed by the Service (inside the cluster)
+    targetPort: 5000          # Port on the Pod to forward traffic to
+    protocol: TCP             # Protocol used for the Service
