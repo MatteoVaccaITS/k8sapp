@@ -1,12 +1,19 @@
-FROM python:3.11-slim           # Use a slim Python 3.11 base image
+# Use a slim Python 3.11 base image
+FROM python:3.11-slim
 
-WORKDIR /app                    # Set working directory inside the container
+# Set working directory inside the container
+WORKDIR /app
 
-COPY requirements.txt ./        # Copy requirements file to the working directory
-RUN pip install --no-cache-dir -r requirements.txt  # Install Python dependencies
+# Copy requirements file to the working directory
+COPY requirements.txt ./
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .                        # Copy all files from current directory to container
+# Copy all files from current directory to container
+COPY . .
 
-EXPOSE 5000                    # Expose port 5000 for the application
+# Expose port 5000 for the application
+EXPOSE 5000
 
-CMD ["python", "app.py"]        # Run app.py with Python when the container starts
+# Run app.py with Python when the container starts
+CMD ["python", "app.py"]
