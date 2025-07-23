@@ -12,10 +12,9 @@ spec:
     metadata:
       labels:
         app: k8sapp
-  spec:
+    spec:
       containers:
       - name: k8sapp
         image: k8sapp:v1
         ports:
         - containerPort: 5000
-        
